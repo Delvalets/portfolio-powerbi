@@ -1,6 +1,6 @@
 # Estudo de Caso: Dashboard de Gestão — Banco de Alimentos
 
-*[Preencher: seu nome / título profissional]*
+**Tayná do Vale Tavares Silva** — Analista de Dados
 
 ---
 
@@ -13,7 +13,7 @@ O Banco de Alimentos é um programa que recebe doações e realiza compras via P
 - Falta de uma fonte única "confiável" — havia múltiplas tabelas candidatas a serem a fonte autoritativa de determinados dados, exigindo investigação para identificar qual usar
 - Atualização manual e sujeita a erro humano, sem automação
 
-*[Preencher: quem eram os usuários finais desse painel — gestores do programa? Secretaria? Quantas pessoas usavam?]*
+Os usuários finais são os gestores responsáveis pela área, com reuniões de análise reunindo cerca de 5 pessoas (gestores principais).
 
 ---
 
@@ -47,7 +47,7 @@ Power BI (dashboard consolidado)
 | `vw_kg_arrecadados` | Unifica doações e compras PAA numa única fonte de "kg arrecadados", com fill-down via `MAX() OVER (PARTITION BY)` para propagar dados de cabeçalho (data, município, responsável) a registros relacionados incompletos |
 | `vw_total_enviadas` | Unifica doações enviadas (BA e PAA) em uma única view, tratando inconsistência de formato numérico (vírgula decimal → ponto) antes de somar |
 
-*[Preencher: com que frequência o pipeline roda — diário? Sob demanda?]*
+O pipeline é executado semanalmente.
 
 ---
 
@@ -66,7 +66,10 @@ Power BI (dashboard consolidado)
 
 ## 4. O resultado
 
-> ⚠️ *Print(s) do dashboard aqui — recriado com dados fictícios/sintéticos, mantendo a mesma estrutura visual e os mesmos KPIs do painel real.*
+![Mockup Banco de Alimentos](../assets/mockups/layout_fundo_banco_alimentos_centralizado.png)
+
+📊 [Baixar o arquivo .pbix](../powerbi/banco_alimentos.pbix)
+🐍 [Ver script de importação](../scripts/import_banco_alimentos_sanitized.py)
 
 **KPIs principais do painel:**
 - Total de kg arrecadados (doação + PAA), com quebra por período
@@ -79,15 +82,13 @@ Power BI (dashboard consolidado)
 
 ## 5. Impacto
 
-*[Preencher com termos qualitativos/relativos, sem números sigilosos — ex: "reduziu de X dias para X horas o tempo de consolidação", "eliminou a necessidade de conferência manual entre múltiplas planilhas", "passou a ser atualizado automaticamente em vez de manualmente"]*
-
+Embora o painel seja usado diretamente por um grupo pequeno de gestores (~5 pessoas), seu impacto é maior do que o número sugere: ele sustenta a análise de resultados dos serviços de assistência social e segurança alimentar oferecidos à população da cidade do Recife, servindo de base para decisões de gestão pública.
 ---
 
 ## 6. Aprendizados
 
 - Identificar a "fonte da verdade" em ambientes com múltiplas tabelas candidatas é um passo tão importante quanto a modelagem em si
 - Problemas de infraestrutura (como incompatibilidade de autenticação) fazem parte do trabalho de um pipeline de dados de ponta a ponta, não só a modelagem e o dashboard
-- *[Preencher: mais algum aprendizado pessoal seu sobre esse projeto]*
 
 ---
 
