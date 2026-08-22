@@ -52,8 +52,9 @@ Consolidação de doações e compras PAA numa fonte única de "kg arrecadados",
 ### 🥗 [Segurança Alimentar / GGSAN](./case-studies/seguranca-alimentar.md)
 Padrão de transformação genérica e reutilizável para planilhas em formato "largo" (uma coluna por data), com padronização de nomenclatura de instituições e unificação de múltiplas fontes de refeição numa única view de fato.
 
-**Destaques técnicos**: unpivot via `jsonb_each_text(to_jsonb(...))`, validação por regex, repivotamento com agregação condicional, padronização de master data via `CASE`.
+**Destaques técnicos**: `MAX() OVER (PARTITION BY)`, `DISTINCT ON` + hash `md5` para deduplicação, `CROSS JOIN LATERAL` para unpivot de categorias.
 
+📊 [Baixar o arquivo .pbix](./powerbi/banco_alimentos.pbix)
 ---
 
 ## Stack técnica
@@ -70,6 +71,7 @@ Padrão de transformação genérica e reutilizável para planilhas em formato "
 ```
 ├── case-studies/         → documentação detalhada de cada estudo de caso
 ├── assets/mockups/        → capturas de tela dos dashboards (dados fictícios)
+├── powerbi/                → arquivos .pbix dos mockups
 └── scripts/                → scripts de importação sanitizados (sem credenciais)
 ```
 
