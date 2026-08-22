@@ -49,7 +49,7 @@ Consolidação de doações e compras PAA numa fonte única de "kg arrecadados",
 
 **Destaques técnicos**: `MAX() OVER (PARTITION BY)`, `DISTINCT ON` + hash `md5` para deduplicação, `CROSS JOIN LATERAL` para unpivot de categorias.
 
-### 🥗 [Segurança Alimentar / GGSAN](./case-studies/seguranca-alimentar.md)
+### 🥗 [Segurança Alimentar](./case-studies/seguranca-alimentar.md)
 Padrão de transformação genérica e reutilizável para planilhas em formato "largo" (uma coluna por data), com padronização de nomenclatura de instituições e unificação de múltiplas fontes de refeição numa única view de fato.
 
 **Destaques técnicos**: `MAX() OVER (PARTITION BY)`, `DISTINCT ON` + hash `md5` para deduplicação, `CROSS JOIN LATERAL` para unpivot de categorias.
